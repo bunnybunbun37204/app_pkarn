@@ -1,0 +1,49 @@
+<resources>
+    <string name="action_settings" translatable="false">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="app_name" translatable="false">DolphinJunior</string>
+    <string name="cmdSecondActivity" translatable="false">LOGIN</string>
+    <string name="Username" translatable="false">Username</string>
+    <string name="Passwordid" translatable="false">Password</string>
+    <string name="editPassword" translatable="false">Password</string>
+    <string name="editUsername" translatable="false">Username</string>
+    <string name="FirstActivity" translatable="false">Back</string>
+    <string name="LoginUsername" translatable="false">Login Username and Password</string>
+    <string name="ThirdActivity" translatable="false">EXPORT</string>
+    <string name="cmdFourthActivity" translatable="false">SUBMIT</string>
+    <string name="Equipment" translatable="false">editEqupment</string>
+    <string name="im1" translatable="false">im1</string>
+    <string name="editEquipment" translatable="false">Equipmwnt</string>
+    <string name="Equipent" translatable="false">Equipment</string>
+    <string name="damage" translatable="false">Damage Levels</string>
+    <string name="Createdatefrom" translatable="false">Create Date From</string>
+    <string name="ch1" translatable="false">Level 1</string>
+    <string name="ch2" translatable="false">Level 2</string>
+    <string name="ch3" translatable="false">Level 3</string>
+    <string name="edtPassword" translatable="false">Password</string>
+    <string name="edtUsername" translatable="false">Username</string>
+    <string name="GateIn" translatable="false">Gate In</string>
+    <string name="empty" translatable="false">empty</string>
+    <string name="report" translatable="false">Report</string>
+    <string name="datanotification" translatable="false">Data Notification</string>
+    <string name="Eqsize" translatable="false">Eqsize</string>
+    <string name="Eqtype" translatable="false">Eqtype</string>
+    <string name="ContainerNo" translatable="false">ContainerNo</string>
+    <string name="EorDate" translatable="false">Eor Date</string>
+    <string name="completedate" translatable="false">Complete Date</string>
+    <string name="gotofive" translatable="false">Submit</string>
+    <string name="gotofourth" translatable="false">Back</string>
+    <string name="Containeredit" translatable="false">editContainer</string>
+    <string name="gotofour" translatable="false">Submit</string>
+    <string name="gotosecond" translatable="false">Back</string>
+    <string name="Gateout" translatable="false">Gate Out</string>
+    <string name="password_id_id">Password</string>
+    <string name="register">Register</string>
+</resources>
