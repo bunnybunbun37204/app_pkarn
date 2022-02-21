@@ -5,3 +5,11 @@ mutation UserAuth($username : String!, $password : String!) {
         token
     }
 }
+
+mutation  LoginUser($username : String!, $password : String!) {
+    register(username:$username, password: $password){
+        username
+        password
+        token
+    }
+}
