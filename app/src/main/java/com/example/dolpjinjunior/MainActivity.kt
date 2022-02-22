@@ -16,17 +16,24 @@ import com.example.dolpjinjunior.utils.Utils
 
 class MainActivity : AppCompatActivity() {
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        Utils.initialize(this@MainActivity, "USER_TOKEN")
-
+        Utils.initialize(this@MainActivity, Config.SECRET_KEY)
         Log.i("LOG-DEBUGGER", "USER TOKEN ${Config.USER_TOKEN}")
 
+        super.onCreate(savedInstanceState)
+
+        if (Config.USER_TOKEN != "null" && Config.STATUS_BUG == 0) {
+            val intent = Intent(this, MainMenu::class.java)
+            Utils.makeToast(this@MainActivity, "You have logged in already", Toast.LENGTH_LONG)
+            this.startActivity(intent)
+        }
+
+        else {
+            Utils.clearData(this@MainActivity)
+        }
+
+        setContentView(R.layout.activity_main)
         val GRAPH_URL = "http://192.168.1.31:4000/"
 
         //EditText
@@ -60,8 +67,11 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     else {
-                        Utils.saveData(this@MainActivity, "USER_TOKEN", result.data?.login?.token.toString())
+                        Utils.saveData(this@MainActivity, Config.SECRET_KEY, result.data?.login?.token.toString())
                         Utils.makeToast(this@MainActivity, "Login Success", Toast.LENGTH_SHORT)
+                        val context = loginButton.context
+                        val intent = Intent(context, MainMenu::class.java)
+                        context.startActivity(intent)
                     }
                 }
                 catch (error : Error) {

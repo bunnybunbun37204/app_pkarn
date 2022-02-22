@@ -1,5 +1,6 @@
 package com.example.dolpjinjunior
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -54,7 +55,11 @@ class RegisterActivity : AppCompatActivity() {
                     }
                     else {
                         Config.USER_TOKEN = result.data?.register?.token.toString()
+                        Log.d("LOG-DEBUGGER","TEST TOKEN : ${Config.USER_TOKEN}")
                         Utils.makeToast(this@RegisterActivity, "Register Success", Toast.LENGTH_SHORT)
+                        val context = registerButton.context
+                        val intent = Intent(context, MainActivity::class.java)
+                        context.startActivity(intent)
                     }
                 }
             }

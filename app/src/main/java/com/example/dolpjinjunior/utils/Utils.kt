@@ -1,10 +1,7 @@
 package com.example.dolpjinjunior.utils
 
 import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.apollographql.apollo3.ApolloClient
@@ -33,23 +30,35 @@ class Utils {
 
         fun saveData(classCall : AppCompatActivity,
                      key : String,
-                     value : String) {
+                     value : String?) {
             val sharerPreferences = classCall.getPreferences(Context.MODE_PRIVATE) ?: return
             with (sharerPreferences.edit()) {
                 putString(key, value)
                 apply()
             }
+            Log.d("LOG-DEBUGGER","SACED : ${Config.USER_TOKEN}")
+            Log.d("LOG-DEBUGGER", "SAVE DATA !!!!")
         }
 
         private fun getData(classCall: AppCompatActivity,
                             key : String) : String {
             val sharerPreferences = classCall.getPreferences(Context.MODE_PRIVATE) ?: return "Error no Data"
+            Log.d("TEST","GET : ${sharerPreferences.getString(key, null).toString()}")
             return sharerPreferences.getString(key, null).toString()
         }
 
         fun initialize(classCall: AppCompatActivity, key : String) {
             Log.d("LOG-DEBUGGER", "START INIT")
             Config.USER_TOKEN = getData(classCall, key)
+        }
+
+        fun clearData(classCall: AppCompatActivity) {
+            val sharedPreferences = classCall.getPreferences(Context.MODE_PRIVATE) ?: return
+            with (sharedPreferences.edit()) {
+                clear()
+                apply()
+                Log.d("LOG-DEBUGGER", "ALL DATA CLEAR")
+            }
         }
 
     }
