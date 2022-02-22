@@ -9,9 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.exception.ApolloException
+import com.example.dolpjinjunior.utils.Config
 import com.example.dolpjinjunior.utils.Utils
 
-class LoginActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,14 +30,14 @@ class LoginActivity : AppCompatActivity() {
             val password : String = passwordEditText.text.toString()
             val confirmPassword : String = confirmPasswordEditText.text.toString()
 
-            if (password != confirmPassword) Utils.makeToast(this@LoginActivity, "Password is not same", Toast.LENGTH_SHORT)
+            if (password != confirmPassword){
+                Utils.makeToast(this@RegisterActivity, "Password is not same", Toast.LENGTH_SHORT)
+            }
             else {
-
                 val GRAPH_URL = "http://192.168.1.31:4000/"
                 lifecycleScope.launchWhenResumed {
                     val status = Utils.checkConnection()
-                    if (!status) Utils.makeToast(this@LoginActivity, "No internet", Toast.LENGTH_SHORT)
-
+                    if (!status) Utils.makeToast(this@RegisterActivity, "No internet", Toast.LENGTH_SHORT)
                     val result = try {
                         ApolloClient.Builder()
                             .serverUrl(GRAPH_URL)
@@ -45,11 +46,15 @@ class LoginActivity : AppCompatActivity() {
                             .execute()
                     } catch (err : ApolloException) {
                         Log.d("LOG-DEBUGGER", "Err : $err")
-                        Utils.makeToast(this@LoginActivity, "Error Network Connection", Toast.LENGTH_SHORT)
+                        Utils.makeToast(this@RegisterActivity, "Error Network Connection", Toast.LENGTH_SHORT)
                         throw err
                     }
                     if (result.data?.register == null) {
-                        Utils.makeToast(this@LoginActivity, result.errors?.get(0)?.message.toString(), Toast.LENGTH_SHORT)
+                        Utils.makeToast(this@RegisterActivity, result.errors?.get(0)?.message.toString(), Toast.LENGTH_SHORT)
+                    }
+                    else {
+                        Config.USER_TOKEN = result.data?.register?.token.toString()
+                        Utils.makeToast(this@RegisterActivity, "Register Success", Toast.LENGTH_SHORT)
                     }
                 }
             }

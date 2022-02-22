@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.exception.ApolloException
+import com.example.dolpjinjunior.utils.Config
 import com.example.dolpjinjunior.utils.Utils
 
 
@@ -21,6 +22,10 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Utils.initialize(this@MainActivity, "USER_TOKEN")
+
+        Log.i("LOG-DEBUGGER", "USER TOKEN ${Config.USER_TOKEN}")
 
         val GRAPH_URL = "http://192.168.1.31:4000/"
 
@@ -55,6 +60,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     else {
+                        Utils.saveData(this@MainActivity, "USER_TOKEN", result.data?.login?.token.toString())
                         Utils.makeToast(this@MainActivity, "Login Success", Toast.LENGTH_SHORT)
                     }
                 }
@@ -68,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         registerButton.setOnClickListener {
             val context = registerButton.context
 
-            val intent = Intent(context, LoginActivity::class.java)
+            val intent = Intent(context, RegisterActivity::class.java)
 
             context.startActivity(intent)
         }

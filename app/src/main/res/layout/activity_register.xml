@@ -7,7 +7,7 @@
     android:background="#0F115A"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
 
     <LinearLayout
