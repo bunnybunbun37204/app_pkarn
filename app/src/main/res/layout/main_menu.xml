@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <Button
-        android:id="@+id/button_first"
+        android:id="@+id/gatein_btn"
         android:layout_width="268dp"
         android:layout_height="134dp"
         android:layout_marginBottom="568dp"
@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_first" />
+        app:layout_constraintTop_toBottomOf="@+id/gatein_btn" />
 
     <Button
         android:id="@+id/button4"

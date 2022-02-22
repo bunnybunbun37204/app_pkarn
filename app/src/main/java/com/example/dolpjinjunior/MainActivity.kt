@@ -17,11 +17,12 @@ import com.example.dolpjinjunior.utils.Utils
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val GRAPH_URL = "http://192.168.1.31:4000/"
 
         Utils.initialize(this@MainActivity, Config.SECRET_KEY)
         Log.i("LOG-DEBUGGER", "USER TOKEN ${Config.USER_TOKEN}")
-
-        super.onCreate(savedInstanceState)
 
         if (Config.USER_TOKEN != "null" && Config.STATUS_BUG == 0) {
             val intent = Intent(this, MainMenu::class.java)
@@ -34,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(R.layout.activity_main)
-        val GRAPH_URL = "http://192.168.1.31:4000/"
 
         //EditText
         val usernameEditText : EditText = findViewById(R.id.username_id)
@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
                                 throw exeption
                             }
                     Log.i("LOG-INFO","Username : $username Password : $password ")
-                    Log.i("LOG-INFO","Success ${result.data?.login?.username.toString()}")
 
                     if (result.data?.login == null) {
                         Utils.makeToast(this@MainActivity, result.errors?.get(0)?.message.toString(), Toast.LENGTH_SHORT)

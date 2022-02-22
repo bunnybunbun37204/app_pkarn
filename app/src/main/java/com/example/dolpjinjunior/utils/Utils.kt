@@ -36,7 +36,7 @@ class Utils {
                 putString(key, value)
                 apply()
             }
-            Log.d("LOG-DEBUGGER","SACED : ${Config.USER_TOKEN}")
+            Log.d("LOG-DEBUGGER","SAVED : $value")
             Log.d("LOG-DEBUGGER", "SAVE DATA !!!!")
         }
 

@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".RegisterActivity" android:exported="true" />
         <activity android:name=".MainMenu" android:exported="true"/>
+        <activity android:name=".GateInActivity" android:exported="true"/>
     </application>
 
 </manifest>
