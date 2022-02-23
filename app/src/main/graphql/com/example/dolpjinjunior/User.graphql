@@ -15,3 +15,26 @@ query QuerytokenUser() {
         username
     }
 }
+
+mutation AddContainer(
+$container_id : String!,
+$container_size : Float!,
+$container_type : String!,
+$container_damage_level : String!,
+$container_date_start : String!,
+$container_date_end : String!,
+$container_date_finish : String!
+$container_fixed_status : Boolean!) {
+    addContainer(
+        container_id: $container_id,
+        container_size: $container_size,
+        container_type: $container_type,
+        container_date_start : $container_date_start,
+        container_date_end: $container_date_end,
+        container_date_finish : $container_date_finish,
+        container_damage_level: $container_damage_level,
+        container_fixed_status: $container_fixed_status) {
+
+        container_id
+    }
+}
