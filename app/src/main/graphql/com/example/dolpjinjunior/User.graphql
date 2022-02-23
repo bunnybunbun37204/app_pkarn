@@ -16,6 +16,12 @@ query QuerytokenUser() {
     }
 }
 
+query AllContainner() {
+    all_container {
+        all_id
+    }
+}
+
 mutation AddContainer(
 $container_id : String!,
 $container_size : Float!,
@@ -36,5 +42,15 @@ $container_fixed_status : Boolean!) {
         container_fixed_status: $container_fixed_status) {
 
         container_id
+    }
+}
+
+mutation UpdateContainerStatus($container_id : String!,
+        $container_date_finish : String!,
+        $container_fixed_status : Boolean!) {
+    updateContainerStatus(container_id : $container_id,
+                            container_date_finish: $container_date_finish,
+                            container_fixed_status : $container_fixed_status) {
+        container_fixed_status
     }
 }

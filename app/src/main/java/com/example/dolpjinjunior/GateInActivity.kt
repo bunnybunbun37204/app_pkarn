@@ -12,7 +12,7 @@ import com.apollographql.apollo3.exception.ApolloException
 import com.example.dolpjinjunior.utils.Config
 import com.example.dolpjinjunior.utils.Utils
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
 
 class GateInActivity : AppCompatActivity() {
     @SuppressLint("SimpleDateFormat")
@@ -67,7 +67,7 @@ class GateInActivity : AppCompatActivity() {
         }
 
 
-        calendarView.setOnDateChangeListener { calendarView, i, i2, i3 ->
+        calendarView.setOnDateChangeListener { _, i, i2, i3 ->
             formatDate = "$i.${i2+1}.$i3"
         }
 
@@ -113,7 +113,7 @@ class GateInActivity : AppCompatActivity() {
                             endDate,
                             finishDate,
                             false
-                        )).addHttpHeader("authorization",Config.USER_TOKEN.toString()).execute()
+                        )).addHttpHeader("authorization", Config.USER_TOKEN.toString()).execute()
                 } catch (err : ApolloException) {
                     throw err
                 }

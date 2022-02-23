@@ -8,150 +8,161 @@
     android:background="#0F115A"
     tools:ignore="ExtraText">
 
-            <LinearLayout
-                android:id="@+id/Entry"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/Entry"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-135dp"
+        tools:layout_editor_absoluteY="0dp">
 
-                <TextView
-                    android:id="@+id/textView26id"
-                    android:layout_width="410dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ContainerNo"
-                    android:textColor="#FDFDFD" />
+        <TextView
+            android:id="@+id/textView26id"
+            android:layout_width="410dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ContainerNo"
+            android:textColor="#FDFDFD" />
 
-                <EditText
-                    android:id="@+id/container_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="#F8F8F8"
-                    android:translationY="-15dp"
-                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+        <EditText
+            android:id="@+id/container_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="#F8F8F8"
+            android:translationY="-15dp"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="197dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:text="@string/Eqsize"
-                    android:textColor="@color/white"
-                    android:translationY="-15dp"
-                    app:drawableTint="@color/white" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:text="@string/Eqsize"
+            android:textColor="@color/white"
+            android:translationY="-15dp"
+            app:drawableTint="@color/white" />
 
-                <Spinner
-                    android:id="@+id/eqsize"
-                    android:layout_width="194dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#FFFFFF"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:translationY="-21dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+        <Spinner
+            android:id="@+id/eqsize"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:translationY="-21dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="215dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Eqtype"
-                    android:textColor="@color/white"
-                    android:translationX="200dp"
-                    android:translationY="-80dp" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Eqtype"
+            android:textColor="@color/white"
+            android:translationX="200dp"
+            android:translationY="-80dp" />
 
-                <Spinner
-                    android:id="@+id/eqtype"
-                    android:layout_width="192dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#FFFFFF"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:translationX="200dp"
-                    android:translationY="-86dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+        <Spinner
+            android:id="@+id/eqtype"
+            android:layout_width="192dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:translationX="200dp"
+            android:translationY="-86dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-                <TextView
-                    android:id="@+id/textView29"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Damage Level"
-                    android:textColor="#FDFDFD"
-                    android:translationX="5dp"
-                    android:translationY="-85dp" />
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Damage Level"
+            android:textColor="#FDFDFD"
+            android:translationX="5dp"
+            android:translationY="-85dp" />
 
-                <CheckBox
-                    android:id="@+id/emptyCheck"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="#FFFFFF"
-                    android:minHeight="48dp"
-                    android:text="Empty"
-                    android:textColor="#FAF7F7"
-                    android:translationY="-80dp" />
+        <CheckBox
+            android:id="@+id/emptyCheck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="#FFFFFF"
+            android:minHeight="48dp"
+            android:text="Empty"
+            android:textColor="#FAF7F7"
+            android:translationY="-80dp" />
 
-                <CheckBox
-                    android:id="@+id/wait1_check"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="#FFFFFF"
-                    android:minHeight="48dp"
-                    android:text="Wait 1"
-                    android:textColor="#FBFBFB"
-                    android:translationY="-90dp" />
+        <CheckBox
+            android:id="@+id/wait1_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="#FFFFFF"
+            android:minHeight="48dp"
+            android:text="Wait 1"
+            android:textColor="#FBFBFB"
+            android:translationY="-90dp" />
 
-                <CheckBox
-                    android:id="@+id/wait2_check"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="#FFFFFF"
-                    android:minHeight="48dp"
-                    android:text="Wait 2"
-                    android:textColor="#FFFFFF"
-                    android:translationY="-95dp" />
+        <CheckBox
+            android:id="@+id/wait2_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="#FFFFFF"
+            android:minHeight="48dp"
+            android:text="Wait 2"
+            android:textColor="#FFFFFF"
+            android:translationY="-95dp" />
 
-                <TextView
-                    android:id="@+id/textView30id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#F1ECEC"
-                    android:text="@string/EorDate"
-                    android:textColor="#FBFBFB"
-                    android:translationX="5dp"
-                    android:translationY="-90dp" />
+        <TextView
+            android:id="@+id/textView30id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F1ECEC"
+            android:text="@string/EorDate"
+            android:textColor="#FBFBFB"
+            android:translationX="5dp"
+            android:translationY="-90dp" />
 
-                <CalendarView
-                    android:id="@+id/calendarView"
-                    android:layout_width="308dp"
-                    android:layout_height="288dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="#FFF9F9"
-                    android:focusedMonthDateColor="#F3F1F1"
-                    android:maxDate="31/12/2030"
-                    android:minDate="01/01/2020"
-                    android:translationY="-70dp" />
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="308dp"
+            android:layout_height="288dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#FFF9F9"
+            android:focusedMonthDateColor="#F3F1F1"
+            android:maxDate="31/12/2030"
+            android:minDate="01/01/2020"
+            android:translationY="-70dp" />
 
-                <Button
-                    android:id="@+id/back_btn1"
-                    android:layout_width="200dp"
-                    android:layout_height="70dp"
-                    android:backgroundTint="#3F51B5"
-                    android:text="@string/gotosecond"
-                    android:translationY="-20dp" />
+        <Button
+            android:id="@+id/back_btn1"
+            android:layout_width="113dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#00ACC1"
+            android:text="@string/gotofourth"
+            android:translationX="10dp"
+            android:translationY="0dp" />
 
-                <Button
-                    android:id="@+id/submit_btn1"
-                    android:layout_width="190dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="left"
-                    android:backgroundTint="#3F51B5"
-                    android:text="@string/gotofour"
-                    android:translationX="220dp"
-                    android:translationY="-90dp" />
+        <Button
+            android:id="@+id/submit_btn1"
+            android:layout_width="164dp"
+            android:layout_height="63dp"
+            android:backgroundTint="#00ACC1"
+            android:text="@string/gotofive"
+            android:translationX="130dp"
+            android:translationY="-110dp" />
 
-            </LinearLayout>
+        <Button
+            android:id="@+id/next_btn1"
+            android:layout_width="113dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#00ACC1"
+            android:text="@string/next"
+            android:translationX="290dp"
+            android:translationY="-108dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

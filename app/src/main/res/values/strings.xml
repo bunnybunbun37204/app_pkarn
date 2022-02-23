@@ -49,4 +49,6 @@
     <string name="register_to_get_an_account">Register to get an Account</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="logout">Logout</string>
+    <string name="menu">menu</string>
+    <string name="container_id">container id</string>
 </resources>

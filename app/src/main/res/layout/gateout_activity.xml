@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#00ACC1"
+    android:backgroundTint="#00ACC1"
+    tools:context=".GateOutActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0F115A"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00ACC1"
+            android:text="@string/menu"
+            android:translationY="-5dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:text="@string/ContainerNo"
+            android:textColor="@color/white"
+            android:translationY="5dp" />
+
+        <EditText
+            android:id="@+id/container_id_query"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/container_id"
+            android:textColorHint="@color/white"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/completedate"
+            android:textColor="@color/white"
+            android:translationY="20dp" />
+
+        <CalendarView
+            android:id="@+id/calendarView2"
+            android:layout_width="289dp"
+            android:layout_height="370dp"
+            android:layout_gravity="center_horizontal|top"
+            android:background="#FBFAFA"
+            android:translationY="30dp"
+            android:weekNumberColor="@color/white"
+            android:weekSeparatorLineColor="@color/white" />
+
+        <Button
+            android:id="@+id/back_btn1"
+            android:layout_width="113dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#00ACC1"
+            android:text="@string/gotofourth"
+            android:translationX="20dp"
+            android:translationY="120dp" />
+
+        <Button
+            android:id="@+id/submit_btn2"
+            android:layout_width="164dp"
+            android:layout_height="63dp"
+            android:backgroundTint="#00ACC1"
+            android:text="@string/gotofive"
+            android:translationX="130dp"
+            android:translationY="0dp" />
+
+        <Button
+            android:id="@+id/next_btn1"
+            android:layout_width="113dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#00ACC1"
+            android:text="@string/next"
+            android:translationX="290dp"
+            android:translationY="10dp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

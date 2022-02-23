@@ -42,6 +42,7 @@ class MainMenu : AppCompatActivity() {
 
         val logoutButton : Button = findViewById(R.id.button_logout)
         val gateInButton : Button = findViewById(R.id.gatein_btn)
+        val gateOutButton : Button = findViewById(R.id.gateout_btn)
 
         logoutButton.setOnClickListener {
             Config.STATUS_BUG = 1
@@ -55,6 +56,12 @@ class MainMenu : AppCompatActivity() {
         gateInButton.setOnClickListener {
             val context = gateInButton.context
             val intent = Intent(context, GateInActivity::class.java)
+            context.startActivity(intent)
+        }
+
+        gateOutButton.setOnClickListener {
+            val context = gateOutButton.context
+            val intent = Intent(context, GateOutActivity::class.java)
             context.startActivity(intent)
         }
     }
