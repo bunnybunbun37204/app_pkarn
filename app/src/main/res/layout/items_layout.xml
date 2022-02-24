@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    android:background="#00ACC1"
+    android:stretchColumns="1,2,3,4,5,6,7">
+
+    <TableRow
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/container_id_table"
+            android:layout_width="0dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:layout_weight="4"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/container_size_table"
+            android:layout_width="0dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:layout_weight="3.5"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/container_type_table"
+            android:layout_width="0dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:layout_weight="3.5"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/container_damage_level"
+            android:layout_width="0dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:layout_weight="4"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/container_eor_table"
+            android:layout_width="0dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:layout_weight="4"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/container_finish_table"
+            android:layout_width="0dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:layout_weight="4"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/container_annotation_table"
+            android:layout_width="0dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:layout_weight="4"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            />
+    </TableRow>
+</TableLayout>

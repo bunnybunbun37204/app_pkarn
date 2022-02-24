@@ -5,6 +5,7 @@ class Container {
     private val containerId : String
     private val containerSize : Double
     private val containerType : String
+    private val containerDamageLv : String
     private val containerDateStart : String
     private val containerDateEnd : String
     private val containerDateFinish : String
@@ -14,6 +15,7 @@ class Container {
     constructor(containerId : String,
                 containerSize : Double,
                 containerType : String,
+                containerDamageLv : String,
                 containerDateStart : String,
                 containerDateEnd : String,
                 containerDateFinish : String,
@@ -22,6 +24,7 @@ class Container {
         this.containerId = containerId
         this.containerSize = containerSize
         this.containerType = containerType
+        this.containerDamageLv = containerDamageLv
         this.containerDateStart = containerDateStart
         this.containerDateEnd = containerDateEnd
         this.containerDateFinish = containerDateFinish
@@ -39,6 +42,10 @@ class Container {
 
     fun getContainerType() : String {
         return containerType
+    }
+
+    fun getContainerDamageLv() : String {
+        return containerDamageLv
     }
 
     fun getContainerDateStart() : String {

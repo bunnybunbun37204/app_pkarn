@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.exception.ApolloException
 import com.example.dolpjinjunior.utils.Config
@@ -20,7 +22,7 @@ class Notification : AppCompatActivity() {
         }
     }
 
-    suspend fun initialization() {
+    private suspend fun initialization() {
         val GRAPH_URL = "http://192.168.1.31:4000/"
         val result = try {
             ApolloClient.Builder().serverUrl(GRAPH_URL).build()
@@ -38,6 +40,7 @@ class Notification : AppCompatActivity() {
                     data.container_id,
                     data.container_size,
                     data.container_type,
+                    data.container_damage_level,
                     data.container_date_start,
                     data.container_date_end,
                     data.container_date_finish,
@@ -48,6 +51,12 @@ class Notification : AppCompatActivity() {
         }
 
         Log.d("LOG-DEBUGGER", "DATA : ${containerList[0].getContainerId()}")
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView!!.layoutManager = LinearLayoutManager(this)
+
+        val myAdapter : ContainerAdapter = ContainerAdapter(containerList, this)
+        recyclerView.adapter = myAdapter
 
     }
 }

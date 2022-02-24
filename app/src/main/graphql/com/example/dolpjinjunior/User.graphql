@@ -16,6 +16,7 @@ query AllContainer {
             container_id
             container_size
             container_type
+            container_damage_level
             container_date_start
             container_date_end
             container_date_finish
