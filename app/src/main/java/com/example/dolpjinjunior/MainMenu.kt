@@ -5,7 +5,6 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +42,7 @@ class MainMenu : AppCompatActivity() {
         val logoutButton : Button = findViewById(R.id.button_logout)
         val gateInButton : Button = findViewById(R.id.gatein_btn)
         val gateOutButton : Button = findViewById(R.id.gateout_btn)
+        val dataNotiButton : Button = findViewById(R.id.data_noti_btn)
 
         logoutButton.setOnClickListener {
             Config.STATUS_BUG = 1
@@ -62,6 +62,12 @@ class MainMenu : AppCompatActivity() {
         gateOutButton.setOnClickListener {
             val context = gateOutButton.context
             val intent = Intent(context, GateOutActivity::class.java)
+            context.startActivity(intent)
+        }
+
+        dataNotiButton.setOnClickListener {
+            val context = dataNotiButton.context
+            val intent = Intent(context, Notification::class.java)
             context.startActivity(intent)
         }
     }

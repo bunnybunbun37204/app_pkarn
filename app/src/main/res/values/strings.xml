@@ -51,4 +51,20 @@
     <string name="logout">Logout</string>
     <string name="menu">menu</string>
     <string name="container_id">container id</string>
+    <string name="eqsize">Eqsize</string>
+    <string name="eqtype">Eqtype</string>
+    <string name="damage_level">Damage level</string>
+    <string name="eor_date">EOR Date</string>
+    <string name="annotation">Annotation</string>
+    <string name="dameage_lv">Dameage Lv</string>
+    <string name="complete">Complete</string>
+    <string name="for_table">for table</string>
+    <string name="id">ID</string>
+    <string name="type">Type</string>
+    <string name="level">Level</string>
+    <string name="complete_date">Complete Date</string>
+    <string name="size">Size</string>
+    <string name="eor">EOR</string>
+    <string name="annot">Annot</string>
+    <string name="cmplt_date">CMPLT Date</string>
 </resources>

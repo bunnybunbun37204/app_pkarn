@@ -25,6 +25,7 @@
         <activity android:name=".MainMenu" android:exported="true"/>
         <activity android:name=".GateInActivity" android:exported="true"/>
         <activity android:name=".GateOutActivity" android:exported="true"/>
+        <activity android:name=".Notification" android:exported="true"/>
     </application>
 
 </manifest>

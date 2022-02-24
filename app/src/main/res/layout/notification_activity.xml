@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#0F115A"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Notification">
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00ACC1"
+        android:text="@string/menu"
+        android:translationY="-5dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:contentDescription="@string/for_table"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:id="@+id/all_table_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:stretchColumns="1,2,3,4,5,6,7">
+
+            <TableRow
+                android:background="#2084C8">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="@string/id"
+                    android:padding="10sp"
+                    android:layout_weight="4"
+                    android:textSize="12sp"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="@string/size"
+                    android:padding="10sp"
+                    android:layout_weight="3.5"
+                    android:textSize="12sp"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="@string/type"
+                    android:padding="10sp"
+                    android:layout_weight="3.5"
+                    android:textSize="12sp"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="@string/level"
+                    android:padding="10sp"
+                    android:layout_weight="4"
+                    android:textSize="12sp"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eor"
+                    android:padding="10sp"
+                    android:layout_weight="4"
+                    android:textSize="12sp"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cmplt_date"
+                    android:padding="10sp"
+                    android:layout_weight="4"
+                    android:textSize="12sp"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="@string/annot"
+                    android:padding="10sp"
+                    android:layout_weight="4"
+                    android:textSize="12sp"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </TableRow>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </TableLayout>
+    </ScrollView>
+
+</LinearLayout>

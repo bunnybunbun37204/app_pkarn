@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/gatein_btn" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/data_noti_btn"
         android:layout_width="272dp"
         android:layout_height="138dp"
         android:layout_marginBottom="180dp"

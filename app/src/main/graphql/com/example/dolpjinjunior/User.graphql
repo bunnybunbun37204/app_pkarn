@@ -10,15 +10,23 @@ mutation  LoginUser($username : String!, $password : String!) {
     }
 }
 
-query QuerytokenUser() {
-    me {
-        username
+query AllContainer {
+    all_container {
+        all_id {
+            container_id
+            container_size
+            container_type
+            container_date_start
+            container_date_end
+            container_date_finish
+            container_fixed_status
+        }
     }
 }
 
-query AllContainner() {
-    all_container {
-        all_id
+query QuerytokenUser() {
+    me {
+        username
     }
 }
 
