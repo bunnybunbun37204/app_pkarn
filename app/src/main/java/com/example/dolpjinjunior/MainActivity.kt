@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
 
                     else {
                         Utils.saveData(this@MainActivity, Config.SECRET_KEY, result.data?.login?.token.toString())
+                        Utils.initialize(this@MainActivity, Config.SECRET_KEY)
                         Utils.makeToast(this@MainActivity, "Login Success", Toast.LENGTH_SHORT)
                         val context = loginButton.context
                         val intent = Intent(context, MainMenu::class.java)
