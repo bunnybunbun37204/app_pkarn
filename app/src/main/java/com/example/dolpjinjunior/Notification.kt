@@ -23,9 +23,8 @@ class Notification : AppCompatActivity() {
     }
 
     private suspend fun initialization() {
-        val GRAPH_URL = "http://192.168.1.31:4000/"
         val result = try {
-            ApolloClient.Builder().serverUrl(GRAPH_URL).build()
+            ApolloClient.Builder().serverUrl(Config.GRAPHQL_URI).build()
                 .query(AllContainerQuery())
                 .addHttpHeader("authorization", Config.USER_TOKEN.toString()).execute()
         } catch (err : ApolloException) {

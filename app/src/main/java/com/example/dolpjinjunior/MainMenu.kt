@@ -27,9 +27,8 @@ class MainMenu : AppCompatActivity() {
         setContentView(R.layout.main_menu)
 
         lifecycleScope.launchWhenResumed {
-            val GRAPH_URL = "http://192.168.1.31:4000/"
             Log.i("LOG-INFO","TOKEN : ${Config.USER_TOKEN}")
-            val data = ApolloClient.Builder().serverUrl(GRAPH_URL).build()
+            val data = ApolloClient.Builder().serverUrl(Config.GRAPHQL_URI).build()
                 .query(QuerytokenUserQuery())
                 .addHttpHeader("authorization",Config.USER_TOKEN.toString()).execute()
             val isTokenize : String = data.data?.me?.username.toString()

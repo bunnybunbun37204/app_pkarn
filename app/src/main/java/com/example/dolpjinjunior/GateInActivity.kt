@@ -94,7 +94,6 @@ class GateInActivity : AppCompatActivity() {
                 "Wait2" -> endDate = calculateDateEnd(formatDate, 30)
             }
 
-            val GRAPH_URL = "http://192.168.1.31:4000/"
             val container_id : String = containerEditText.text.toString()
             Log.d("LOG-DEBUGGER", "ID : $container_id SIZE : $eqsize Type : $eqtype" +
                     " Start Date : $formatDate End Date $endDate Damage Level $damage_level")
@@ -102,7 +101,7 @@ class GateInActivity : AppCompatActivity() {
             lifecycleScope.launchWhenResumed {
                 val result = try {
                     ApolloClient.Builder()
-                        .serverUrl(GRAPH_URL)
+                        .serverUrl(Config.GRAPHQL_URI)
                         .build()
                         .mutation(AddContainerMutation(
                             container_id,

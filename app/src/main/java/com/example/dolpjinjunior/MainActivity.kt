@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val GRAPH_URL = "http://192.168.1.31:4000/"
-
         Utils.initialize(this@MainActivity, Config.SECRET_KEY)
         Log.i("LOG-DEBUGGER", "USER TOKEN ${Config.USER_TOKEN}")
 
@@ -52,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             lifecycleScope.launchWhenResumed {
                 try {
                     val result = try { ApolloClient.Builder()
-                                .serverUrl(GRAPH_URL)
+                                .serverUrl(Config.GRAPHQL_URI)
                                 .build()
                                 .mutation(UserAuthMutation(username, password)).execute()
                             } catch (exeption : ApolloException) {

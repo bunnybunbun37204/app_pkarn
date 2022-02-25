@@ -35,13 +35,12 @@ class RegisterActivity : AppCompatActivity() {
                 Utils.makeToast(this@RegisterActivity, "Password is not same", Toast.LENGTH_SHORT)
             }
             else {
-                val GRAPH_URL = "http://192.168.1.31:4000/"
                 lifecycleScope.launchWhenResumed {
                     val status = Utils.checkConnection()
                     if (!status) Utils.makeToast(this@RegisterActivity, "No internet", Toast.LENGTH_SHORT)
                     val result = try {
                         ApolloClient.Builder()
-                            .serverUrl(GRAPH_URL)
+                            .serverUrl(Config.GRAPHQL_URI)
                             .build()
                             .mutation(LoginUserMutation(username, password))
                             .execute()

@@ -34,9 +34,8 @@ class GateOutActivity : AppCompatActivity() {
 
         buttonSubmit.setOnClickListener {
             lifecycleScope.launchWhenResumed {
-                val GRAPH_URL = "http://192.168.1.31:4000/"
                 val result = try {
-                    ApolloClient.Builder().serverUrl(GRAPH_URL)
+                    ApolloClient.Builder().serverUrl(Config.GRAPHQL_URI)
                         .build().mutation(UpdateContainerStatusMutation(containerIdEditText.text.toString(),
                             formatDate, true)).addHttpHeader("authorization", Config.USER_TOKEN.toString()).execute()
                 } catch (err : ApolloException) {
