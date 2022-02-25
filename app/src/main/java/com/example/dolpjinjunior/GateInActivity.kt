@@ -42,6 +42,8 @@ class GateInActivity : AppCompatActivity() {
         val eqtypeOption = arrayOf("HC", "GP")
         val eqsizeOption = arrayOf(20f, 40f)
 
+        var countCheckBoxIsCheck : Int = 0
+
         eqtypeoptionSpinner.adapter = ArrayAdapter<String>(this, R.layout.spinner_item, eqtypeOption)
         eqsizeoptionSpinner.adapter = ArrayAdapter(this, R.layout.spinner_item, eqsizeOption)
 
@@ -77,14 +79,17 @@ class GateInActivity : AppCompatActivity() {
                 empty_check.isChecked -> {
                     Log.d("LOG-DEBUGGER", "EMPTY")
                     damage_level = "Empty"
+                    countCheckBoxIsCheck += 1
                 }
                 wait1_check.isChecked -> {
                     Log.d("LOG-DEBUGGER", "WAIT1")
                     damage_level = "Wait1"
+                    countCheckBoxIsCheck += 1
                 }
                 wait2_check.isChecked -> {
                     Log.d("LOG-DEBUGGER", "WAIT2")
                     damage_level = "Wait2"
+                    countCheckBoxIsCheck += 1
                 }
             }
 
@@ -99,25 +104,30 @@ class GateInActivity : AppCompatActivity() {
                     " Start Date : $formatDate End Date $endDate Damage Level $damage_level")
 
             lifecycleScope.launchWhenResumed {
-                val result = try {
-                    ApolloClient.Builder()
-                        .serverUrl(Config.GRAPHQL_URI)
-                        .build()
-                        .mutation(AddContainerMutation(
-                            container_id,
-                            eqsize.toDouble(),
-                            eqtype,
-                            damage_level,
-                            formatDate,
-                            endDate,
-                            finishDate,
-                            false
-                        )).addHttpHeader("authorization", Config.USER_TOKEN.toString()).execute()
-                } catch (err : ApolloException) {
-                    throw err
+                if (container_id == "" && countCheckBoxIsCheck != 1) {
+                    Utils.makeToast(this@GateInActivity, "Please select 1 Damage Level or type container id", Toast.LENGTH_SHORT)
                 }
-                Utils.makeToast(this@GateInActivity, "Saved Data!!", Toast.LENGTH_SHORT)
-                Log.d("LOG-DEBUGGER", "DATA : ${result.data}")
+                else {
+                    val result = try {
+                        ApolloClient.Builder()
+                            .serverUrl(Config.GRAPHQL_URI)
+                            .build()
+                            .mutation(AddContainerMutation(
+                                container_id,
+                                eqsize.toDouble(),
+                                eqtype,
+                                damage_level,
+                                formatDate,
+                                endDate,
+                                finishDate,
+                                false
+                            )).addHttpHeader("authorization", Config.USER_TOKEN.toString()).execute()
+                    } catch (err : ApolloException) {
+                        throw err
+                    }
+                    Utils.makeToast(this@GateInActivity, "Saved Data!!", Toast.LENGTH_SHORT)
+                    Log.d("LOG-DEBUGGER", "DATA : ${result.data}")
+                }
             }
         }
 

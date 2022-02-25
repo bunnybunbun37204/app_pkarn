@@ -48,15 +48,19 @@ class MainActivity : AppCompatActivity() {
 
             //when Login Button
             lifecycleScope.launchWhenResumed {
-                try {
+                if (username == "" || password == "") {
+                    Utils.makeToast(this@MainActivity, "username or password is empty", Toast.LENGTH_SHORT)
+                }
+
+                else {
                     val result = try { ApolloClient.Builder()
-                                .serverUrl(Config.GRAPHQL_URI)
-                                .build()
-                                .mutation(UserAuthMutation(username, password)).execute()
-                            } catch (exeption : ApolloException) {
-                                Utils.makeToast(this@MainActivity, "Error Network", Toast.LENGTH_LONG)
-                                throw exeption
-                            }
+                        .serverUrl(Config.GRAPHQL_URI)
+                        .build()
+                        .mutation(UserAuthMutation(username, password)).execute()
+                    } catch (exeption : ApolloException) {
+                        Utils.makeToast(this@MainActivity, "Error Network", Toast.LENGTH_LONG)
+                        throw exeption
+                    }
                     Log.i("LOG-INFO","Username : $username Password : $password ")
 
                     if (result.data?.login == null) {
@@ -70,9 +74,6 @@ class MainActivity : AppCompatActivity() {
                         val intent = Intent(context, MainMenu::class.java)
                         context.startActivity(intent)
                     }
-                }
-                catch (error : Error) {
-                    Utils.makeToast(this@MainActivity, "Error maybe caused by internet connection", Toast.LENGTH_SHORT)
                 }
 
             }

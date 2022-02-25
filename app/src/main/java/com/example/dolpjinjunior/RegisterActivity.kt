@@ -36,29 +36,35 @@ class RegisterActivity : AppCompatActivity() {
             }
             else {
                 lifecycleScope.launchWhenResumed {
-                    val status = Utils.checkConnection()
-                    if (!status) Utils.makeToast(this@RegisterActivity, "No internet", Toast.LENGTH_SHORT)
-                    val result = try {
-                        ApolloClient.Builder()
-                            .serverUrl(Config.GRAPHQL_URI)
-                            .build()
-                            .mutation(LoginUserMutation(username, password))
-                            .execute()
-                    } catch (err : ApolloException) {
-                        Log.d("LOG-DEBUGGER", "Err : $err")
-                        Utils.makeToast(this@RegisterActivity, "Error Network Connection", Toast.LENGTH_SHORT)
-                        throw err
+                    if (username == "" || password == "") {
+                        Utils.makeToast(this@RegisterActivity, "username or password is empty", Toast.LENGTH_SHORT)
                     }
-                    if (result.data?.register == null) {
-                        Utils.makeToast(this@RegisterActivity, result.errors?.get(0)?.message.toString(), Toast.LENGTH_SHORT)
-                    }
+
                     else {
-                        Config.USER_TOKEN = result.data?.register?.token.toString()
-                        Log.d("LOG-DEBUGGER","TEST TOKEN : ${Config.USER_TOKEN}")
-                        Utils.makeToast(this@RegisterActivity, "Register Success", Toast.LENGTH_SHORT)
-                        val context = registerButton.context
-                        val intent = Intent(context, MainActivity::class.java)
-                        context.startActivity(intent)
+                        val status = Utils.checkConnection()
+                        if (!status) Utils.makeToast(this@RegisterActivity, "No internet", Toast.LENGTH_SHORT)
+                        val result = try {
+                            ApolloClient.Builder()
+                                .serverUrl(Config.GRAPHQL_URI)
+                                .build()
+                                .mutation(LoginUserMutation(username, password))
+                                .execute()
+                        } catch (err : ApolloException) {
+                            Log.d("LOG-DEBUGGER", "Err : $err")
+                            Utils.makeToast(this@RegisterActivity, "Error Network Connection", Toast.LENGTH_SHORT)
+                            throw err
+                        }
+                        if (result.data?.register == null) {
+                            Utils.makeToast(this@RegisterActivity, result.errors?.get(0)?.message.toString(), Toast.LENGTH_SHORT)
+                        }
+                        else {
+                            Config.USER_TOKEN = result.data?.register?.token.toString()
+                            Log.d("LOG-DEBUGGER","TEST TOKEN : ${Config.USER_TOKEN}")
+                            Utils.makeToast(this@RegisterActivity, "Register Success", Toast.LENGTH_SHORT)
+                            val context = registerButton.context
+                            val intent = Intent(context, MainActivity::class.java)
+                            context.startActivity(intent)
+                        }
                     }
                 }
             }

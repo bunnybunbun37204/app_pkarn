@@ -6,11 +6,13 @@ import android.util.Log
 import android.widget.Button
 import android.widget.CalendarView
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.exception.ApolloException
 import com.example.dolpjinjunior.utils.Config
+import com.example.dolpjinjunior.utils.Utils
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -34,14 +36,25 @@ class GateOutActivity : AppCompatActivity() {
 
         buttonSubmit.setOnClickListener {
             lifecycleScope.launchWhenResumed {
-                val result = try {
-                    ApolloClient.Builder().serverUrl(Config.GRAPHQL_URI)
-                        .build().mutation(UpdateContainerStatusMutation(containerIdEditText.text.toString(),
-                            formatDate, true)).addHttpHeader("authorization", Config.USER_TOKEN.toString()).execute()
-                } catch (err : ApolloException) {
-                    throw err
+                if (containerIdEditText.text.toString() == "") {
+                    Utils.makeToast(this@GateOutActivity, "Please type container id", Toast.LENGTH_SHORT)
                 }
-                Log.i("LOG-INFO","DATA ${result.data}")
+                else {
+                    val result = try {
+                        ApolloClient.Builder().serverUrl(Config.GRAPHQL_URI)
+                            .build().mutation(UpdateContainerStatusMutation(containerIdEditText.text.toString(),
+                                formatDate, true)).addHttpHeader("authorization", Config.USER_TOKEN.toString()).execute()
+                    } catch (err : ApolloException) {
+                        throw err
+                    }
+                    if (result.data?.updateContainerStatus == null) {
+                        Utils.makeToast(this@GateOutActivity, result.errors.toString(), Toast.LENGTH_SHORT)
+                    }
+                    else {
+                        Utils.makeToast(this@GateOutActivity, "Submit Data !!!", Toast.LENGTH_SHORT)
+                    }
+                    Log.i("LOG-INFO","DATA ${result.data}")
+                }
             }
 
         }
