@@ -39,6 +39,10 @@ class Notification : AppCompatActivity() {
         val allData = result.data?.all_container?.all_id
         val containerList : MutableList<Container> = mutableListOf()
 
+        val date = Calendar.getInstance().time
+        val formatter = SimpleDateFormat(Config.FORMAT_DATE) //or use getDateInstance()
+        val formatDate = formatter.format(date)
+
         if (allData != null) {
             for (data in allData){
                 containerList.add(Container(
@@ -50,35 +54,38 @@ class Notification : AppCompatActivity() {
                     data.container_date_end,
                     data.container_date_finish,
                     data.container_fixed_status,
-                    2
+                    calculateLateDate(data.container_date_end, data.container_date_finish)
                 ))
             }
         }
 
         Log.d("LOG-DEBUGGER", "DATA : ${containerList[0].getContainerId()}")
-        val date = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("yyyy.M.dd") //or use getDateInstance()
-        val formatDate = formatter.format(date)
-        val longDiff : Long = calculateLateDate("2022.1.13", "2022.1.31")
-        Log.d("LOG-DEBUGGER", "DATE BTW $longDiff")
+
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView!!.layoutManager = LinearLayoutManager(this)
 
-        val myAdapter : ContainerAdapter = ContainerAdapter(containerList, this)
+        val myAdapter = ContainerAdapter(containerList, this)
         recyclerView.adapter = myAdapter
 
     }
 
     @SuppressLint("SimpleDateFormat")
-    private fun calculateLateDate(eorDate: String, current: String): Long {
-        val formatter = SimpleDateFormat("yyyy.M.dd")
-        val dateStart = formatter.parse(eorDate)
+    private fun calculateLateDate(endDate: String, current: String): Int? {
+        val formatter = SimpleDateFormat(Config.FORMAT_DATE)
+        val dateStart = formatter.parse(endDate)
         val dateFinish = formatter.parse(current)
         val diff: Long = dateFinish?.time?.minus(dateStart?.time!!) ?: 0
         val second: Long = diff / 1000
         val mn: Long = second / 60
         val hrs: Long = mn / 60
-        return hrs / 24
+        val days : Int = hrs.toInt() / 24
+        return if (days >= 0) {
+            return days
+        } else {
+            null
+        }
+
     }
+
 }

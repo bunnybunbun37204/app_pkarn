@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="#00ACC1"
     android:backgroundTint="#00ACC1"
     tools:context=".GateOutActivity">
@@ -16,7 +15,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="1dp"
-        tools:ignore="MissingConstraints">
+        >
 
         <Button
             android:id="@+id/button9"

@@ -28,7 +28,7 @@ class GateInActivity : AppCompatActivity() {
 
         val calendarView : CalendarView = findViewById(R.id.calendarView)
         val date = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("yyyy.M.dd") //or use getDateInstance()
+        val formatter = SimpleDateFormat(Config.FORMAT_DATE) //or use getDateInstance()
         var formatDate = formatter.format(date)
 
         val eqtypeoptionSpinner : Spinner = findViewById(R.id.eqtype)
@@ -69,8 +69,13 @@ class GateInActivity : AppCompatActivity() {
         }
 
 
-        calendarView.setOnDateChangeListener { _, i, i2, i3 ->
-            formatDate = "$i.${i2+1}.$i3"
+        calendarView.setOnDateChangeListener { _, _, i2, i3 ->
+            formatDate = if (i2 < 10) {
+                "$i3/0${i2+1}"
+            } else {
+                "$i3/${i2+1}"
+            }
+
         }
 
 
@@ -134,20 +139,21 @@ class GateInActivity : AppCompatActivity() {
     }
 
     private fun calculateDateEnd(startDate : String, dayAdd : Int) : String {
-        val array_date = startDate.split(".")
+        val array_date = startDate.split("/")
+        Log.d("LOG-DEBUGGER", "ARRAY DATE : $array_date")
         val month = array_date[1].toInt()
-        val day = array_date[2].toInt()
+        val day = array_date[0].toInt()
         val end_date = day + dayAdd
 
         return if (end_date > 28 && month == 2) {
-            "${array_date[0]}.3.${end_date - 28}"
+            "${end_date - 28}/3"
         } else if (end_date > 31 &&
             (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)) {
-            "${array_date[0]}.${month + 1}.${end_date - 31}"
+            "${end_date - 31}/${month + 1}"
         } else if (end_date > 30 ) {
-            "${array_date[0]}.${month + 1}.${end_date - 30}"
+            "${end_date - 30}/${month + 1}"
         } else {
-            "${array_date[0]}.${month}.${end_date}"
+            "${end_date}/${month}"
         }
     }
 }

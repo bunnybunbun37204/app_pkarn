@@ -1,6 +1,10 @@
 package com.example.dolpjinjunior
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
+import android.graphics.Typeface
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +23,7 @@ class ContainerAdapter(val items : MutableList<Container>, val context : Context
         return items.size
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.containerId.text = items[position].getContainerId()
         holder.containerSize.text = items[position].getContainerSize().toString()
@@ -26,7 +31,22 @@ class ContainerAdapter(val items : MutableList<Container>, val context : Context
         holder.containerDamageLevel.text = items[position].getContainerDamageLv()
         holder.containerEorDate.text = items[position].getContainerDateStart()
         holder.containerFinishDate.text = items[position].getContainerDateFinish()
-        holder.containerAnnot.text = items[position].getContainerLateDay().toString()
+        when {
+            items[position].getContainerLateDay().toString() == "null" -> {
+                holder.containerAnnot.text = "-"
+            }
+            items[position].getContainerLateDay().toString() == "0" -> {
+                holder.containerAnnot.text = "Finish"
+                holder.containerAnnot.setTextColor(Color.GREEN)
+                holder.containerAnnot.typeface = Typeface.DEFAULT_BOLD
+            }
+            else -> {
+                holder.containerAnnot.text = items[position].getContainerLateDay().toString() + " d."
+                holder.containerAnnot.setTextColor(Color.RED)
+                holder.containerAnnot.typeface = Typeface.DEFAULT_BOLD
+            }
+        }
+
     }
 
 }

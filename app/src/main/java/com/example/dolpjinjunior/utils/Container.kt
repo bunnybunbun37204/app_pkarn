@@ -10,7 +10,7 @@ class Container {
     private val containerDateEnd : String
     private val containerDateFinish : String
     private val containerFixedStatus : Boolean
-    private val containerLateDay : Int
+    private val containerLateDay : Int?
 
     constructor(containerId : String,
                 containerSize : Double,
@@ -20,7 +20,7 @@ class Container {
                 containerDateEnd : String,
                 containerDateFinish : String,
                 containerFixedStatus : Boolean,
-                containerLateDay : Int) {
+                containerLateDay : Int?) {
         this.containerId = containerId
         this.containerSize = containerSize
         this.containerType = containerType
@@ -64,7 +64,7 @@ class Container {
         return containerFixedStatus
     }
 
-    fun getContainerLateDay() : Int {
+    fun getContainerLateDay() : Int? {
         return containerLateDay
     }
 

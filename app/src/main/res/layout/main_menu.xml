@@ -7,55 +7,66 @@
     android:background="#0F115A"
     tools:context=".MainMenu">
 
-    <Button
-        android:id="@+id/button_logout"
-        android:layout_width="165dp"
-        android:layout_height="78dp"
-        android:layout_marginBottom="48dp"
-        android:backgroundTint="#EF3C04"
-        android:text="@string/logout"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="50dp"
+        android:padding="20dp">
 
-    <Button
-        android:id="@+id/gatein_btn"
-        android:layout_width="268dp"
-        android:layout_height="134dp"
-        android:layout_marginBottom="568dp"
-        android:backgroundTint="#00ACC1"
-        android:text="@string/GateIn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/gatein_btn"
+            android:layout_width="match_parent"
+            android:layout_height="138dp"
+            android:backgroundTint="#00ACC1"
+            android:text="@string/GateIn"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/gateout_btn"
-        android:layout_width="272dp"
-        android:layout_height="138dp"
-        android:layout_marginBottom="368dp"
-        android:backgroundTint="#00ACC1"
-        android:text="@string/Gateout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gatein_btn" />
+        <Button
+            android:id="@+id/gateout_btn"
+            android:layout_width="match_parent"
+            android:layout_height="138dp"
+            android:backgroundTint="#00ACC1"
+            android:text="@string/Gateout"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gatein_btn" />
 
-    <Button
-        android:id="@+id/data_noti_btn"
-        android:layout_width="272dp"
-        android:layout_height="138dp"
-        android:layout_marginBottom="180dp"
-        android:backgroundTint="#00ACC1"
-        android:text="@string/datanotification"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gateout_btn" />
+        <Button
+            android:id="@+id/data_noti_btn"
+            android:layout_width="match_parent"
+            android:layout_height="138dp"
+            android:backgroundTint="#00ACC1"
+            android:text="@string/datanotification"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gateout_btn" />
+
+        <Button
+            android:layout_margin="50dp"
+            android:id="@+id/button_logout"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:backgroundTint="#EF3C04"
+            android:text="@string/logout"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_noti_btn" />
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

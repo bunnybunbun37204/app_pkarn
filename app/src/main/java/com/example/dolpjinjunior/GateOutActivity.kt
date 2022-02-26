@@ -24,14 +24,18 @@ class GateOutActivity : AppCompatActivity() {
 
         val calendarView : CalendarView = findViewById(R.id.calendarView2)
         val date = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("yyyy.M.dd") //or use getDateInstance()
+        val formatter = SimpleDateFormat(Config.FORMAT_DATE) //or use getDateInstance()
         var formatDate = formatter.format(date)
 
         val containerIdEditText : EditText = findViewById(R.id.container_id_query)
         val buttonSubmit : Button = findViewById(R.id.submit_btn2)
 
-        calendarView.setOnDateChangeListener { _, i, i2, i3 ->
-            formatDate = "$i.${i2+1}.$i3"
+        calendarView.setOnDateChangeListener { _, _, i2, i3 ->
+            formatDate = if (i2 < 10) {
+                "$i3/0${i2+1}"
+            } else {
+                "$i3/${i2+1}"
+            }
         }
 
         buttonSubmit.setOnClickListener {
