@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="78dp"
             android:backgroundTint="#EF3C04"
-            android:text="@string/logout"
+            android:text="@string/back"
             android:layout_gravity="center_horizontal"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"

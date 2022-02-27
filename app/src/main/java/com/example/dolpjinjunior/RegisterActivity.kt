@@ -21,6 +21,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         val registerButton : Button = findViewById(R.id.register_btn)
+        val backButton : Button = findViewById(R.id.backBtn)
 
         val usernameEditText : EditText = findViewById(R.id.username_id)
         val passwordEditText : EditText = findViewById(R.id.password_id)
@@ -68,6 +69,12 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+
+        backButton.setOnClickListener {
+            val context = backButton.context
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.dolpjinjunior
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -28,7 +29,11 @@ class GateOutActivity : AppCompatActivity() {
         var formatDate = formatter.format(date)
 
         val containerIdEditText : EditText = findViewById(R.id.container_id_query)
+
         val buttonSubmit : Button = findViewById(R.id.submit_btn2)
+        val buttonMenu : Button = findViewById(R.id.buttonMenu)
+        val backButton : Button = findViewById(R.id.back_btn1)
+        val nextButton : Button = findViewById(R.id.next_btn1)
 
         calendarView.setOnDateChangeListener { _, _, i2, i3 ->
             formatDate = if (i2 < 10) {
@@ -63,6 +68,23 @@ class GateOutActivity : AppCompatActivity() {
 
         }
 
+        buttonMenu.setOnClickListener {
+            val context = buttonMenu.context
+            val intent = Intent(context, MainMenu::class.java)
+            context.startActivity(intent)
+        }
+
+        backButton.setOnClickListener {
+            val context = backButton.context
+            val intent = Intent(context, GateInActivity::class.java)
+            context.startActivity(intent)
+        }
+
+        nextButton.setOnClickListener {
+            val context = nextButton.context
+            val intent = Intent(context, Notification::class.java)
+            context.startActivity(intent)
+        }
 
     }
 }

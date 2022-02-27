@@ -9,7 +9,6 @@
     android:paddingRight="0dp"
     tools:context=".MainActivity">
 
-
     <LinearLayout
         android:weightSum="3"
         android:layout_width="match_parent"

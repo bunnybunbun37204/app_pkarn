@@ -1,8 +1,10 @@
 package com.example.dolpjinjunior
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,9 +41,7 @@ class Notification : AppCompatActivity() {
         val allData = result.data?.all_container?.all_id
         val containerList : MutableList<Container> = mutableListOf()
 
-        val date = Calendar.getInstance().time
-        val formatter = SimpleDateFormat(Config.FORMAT_DATE) //or use getDateInstance()
-        val formatDate = formatter.format(date)
+        val buttonMenu : Button = findViewById(R.id.buttonMenu)
 
         if (allData != null) {
             for (data in allData){
@@ -67,6 +67,12 @@ class Notification : AppCompatActivity() {
 
         val myAdapter = ContainerAdapter(containerList, this)
         recyclerView.adapter = myAdapter
+
+        buttonMenu.setOnClickListener {
+            val context = buttonMenu.context
+            val intent = Intent(context, MainMenu::class.java)
+            context.startActivity(intent)
+        }
 
     }
 

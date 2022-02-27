@@ -1,6 +1,7 @@
 package com.example.dolpjinjunior
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -37,7 +38,11 @@ class GateInActivity : AppCompatActivity() {
         val empty_check : CheckBox = findViewById(R.id.emptyCheck)
         val wait1_check : CheckBox = findViewById(R.id.wait1_check)
         val wait2_check : CheckBox = findViewById(R.id.wait2_check)
+
         val submitBtn : Button = findViewById(R.id.submit_btn1)
+        val menuButton : Button = findViewById(R.id.buttonMenu)
+        val backButton : Button = findViewById(R.id.back_btn1)
+        val nextButton : Button = findViewById(R.id.next_btn1)
 
         val eqtypeOption = arrayOf("HC", "GP")
         val eqsizeOption = arrayOf(20f, 40f)
@@ -134,6 +139,24 @@ class GateInActivity : AppCompatActivity() {
                     Log.d("LOG-DEBUGGER", "DATA : ${result.data}")
                 }
             }
+        }
+
+        menuButton.setOnClickListener {
+            val context = menuButton.context
+            val intent = Intent(context, MainMenu::class.java)
+            context.startActivity(intent)
+        }
+
+        backButton.setOnClickListener {
+            val context = backButton.context
+            val intent = Intent(context, MainMenu::class.java)
+            context.startActivity(intent)
+        }
+
+        nextButton.setOnClickListener {
+            val context = nextButton.context
+            val intent = Intent(context, GateOutActivity::class.java)
+            context.startActivity(intent)
         }
 
     }

@@ -20,12 +20,11 @@
 
         <Button
             android:layout_weight="0.375"
-            android:id="@+id/button9"
+            android:id="@+id/buttonMenu"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:backgroundTint="#00ACC1"
-            android:text="@string/menu"
-            android:translationY="-5dp" />
+            android:text="@string/menu"/>
 
 
         <EditText
