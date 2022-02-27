@@ -109,7 +109,7 @@ class GateInActivity : AppCompatActivity() {
                     " Start Date : $formatDate End Date $endDate Damage Level $damage_level")
 
             lifecycleScope.launchWhenResumed {
-                if (container_id == "" && countCheckBoxIsCheck != 1) {
+                if (container_id == "" || countCheckBoxIsCheck < 1) {
                     Utils.makeToast(this@GateInActivity, "Please select 1 Damage Level or type container id", Toast.LENGTH_SHORT)
                 }
                 else {

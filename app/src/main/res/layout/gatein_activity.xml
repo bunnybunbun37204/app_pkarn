@@ -9,28 +9,30 @@
     tools:context=".GateInActivity">
 
     <LinearLayout
+        android:weightSum="6"
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#0F115A"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="1dp"
         >
 
         <Button
+            android:layout_weight="0.375"
             android:id="@+id/button9"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:backgroundTint="#00ACC1"
             android:text="@string/menu"
             android:translationY="-5dp" />
 
 
         <EditText
+            android:layout_weight="0.375"
             android:id="@+id/container_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:ems="10"
             android:hint="@string/ContainerNo"
             android:textColorHint="@color/white"
@@ -39,131 +41,189 @@
             android:textColor="@color/white" />
 
         <LinearLayout
+            android:layout_weight="0.5"
             android:weightSum="2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
+                android:weightSum="2"
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                tools:ignore="NestedWeights">
                 <TextView
+                    android:layout_weight="0.75"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="@string/Eqsize"
                     android:textColor="@color/white"/>
                 <Spinner
+                    android:layout_weight="1.25"
                     android:id="@+id/eqsize"
                     android:layout_width="match_parent"
                     android:backgroundTint="#FFFFFF"
                     android:minHeight="45dp"
                     tools:ignore="SpeakableTextPresentCheck"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="0dp"/>
             </LinearLayout>
             <LinearLayout
+                android:weightSum="2"
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
                 <TextView
+                    android:layout_weight="0.75"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:text="@string/Eqtype"
                     android:textColor="@color/white"/>
                 <Spinner
+                    android:layout_weight="1.25"
                     android:id="@+id/eqtype"
                     android:layout_width="match_parent"
                     android:backgroundTint="#FFFFFF"
                     android:minHeight="45dp"
                     tools:ignore="SpeakableTextPresentCheck"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="0dp"/>
             </LinearLayout>
 
 
         </LinearLayout>
 
-        <CheckBox
-            android:id="@+id/emptyCheck"
+        <LinearLayout
+            android:weightSum="3"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:buttonTint="#FFFFFF"
-            android:minHeight="40dp"
-            android:text="Empty"
-            android:textColor="#FAF7F7" />
+            android:layout_height="0dp">
+            <CheckBox
+                android:layout_weight="1"
+                android:id="@+id/emptyCheck"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:buttonTint="#FFFFFF"
+                android:minHeight="40dp"
+                android:text="Empty"
+                android:textColor="#FAF7F7" />
 
-        <CheckBox
-            android:id="@+id/wait1_check"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:buttonTint="#FFFFFF"
-            android:minHeight="40dp"
-            android:text="Wait 1"
-            android:textColor="#FBFBFB" />
+            <CheckBox
+                android:layout_weight="1"
+                android:id="@+id/wait1_check"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:buttonTint="#FFFFFF"
+                android:minHeight="40dp"
+                android:text="Wait 1"
+                android:textColor="#FBFBFB" />
 
-        <CheckBox
-            android:id="@+id/wait2_check"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:buttonTint="#FFFFFF"
-            android:minHeight="40dp"
-            android:text="Wait 2"
-            android:textColor="#FFFFFF" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/eor_date"
-            android:textColor="@color/white" />
-
-        <CalendarView
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="#FBFAFA"
-            android:weekNumberColor="#00ACC1"
-            android:weekSeparatorLineColor="#00ACC1" />
-
-        <Button
-            android:id="@+id/submit_btn1"
-            android:layout_width="164dp"
-            android:layout_height="63dp"
-            android:backgroundTint="#00ACC1"
-            android:text="@string/gotofive" />
+            <CheckBox
+                android:layout_weight="1"
+                android:id="@+id/wait2_check"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:buttonTint="#FFFFFF"
+                android:minHeight="40dp"
+                android:text="Wait 2"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
         <LinearLayout
-
-            android:minHeight="50dp"
+            android:weightSum="2"
+            android:layout_weight="2.75"
             android:gravity="center_horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button
-                android:minWidth="150dp"
-                android:id="@+id/back_btn1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:backgroundTint="#00ACC1"
-                android:text="@string/gotofourth" />
-            <Space
-                android:minWidth="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <Button
-                android:minWidth="150dp"
-                android:id="@+id/next_btn1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:backgroundTint="#00ACC1"
-                android:text="@string/next" />
+            android:layout_height="0dp">
+            <TextView
+                android:layout_weight="0.125"
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/eor_date"
+                android:textColor="@color/white"
+                tools:ignore="NestedWeights" />
+
+            <CalendarView
+                android:layout_weight="1.875"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="#FBFAFA"
+                android:weekNumberColor="#00ACC1"
+                android:weekSeparatorLineColor="#00ACC1" />
         </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:weightSum="2"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:gravity="center_horizontal"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                tools:ignore="NestedWeights">
+                <Button
+                    android:layout_weight="1.5"
+                    android:minHeight="80dp"
+                    android:minWidth="180dp"
+                    android:id="@+id/submit_btn1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#00ACC1"
+                    android:text="@string/gotofive"
+                    tools:ignore="NestedWeights" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="0.75"
+                android:weightSum="3"
+                android:minHeight="50dp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal">
+                <Button
+                    android:minHeight="48dp"
+                    android:layout_weight="1.25"
+                    android:minWidth="150dp"
+                    android:id="@+id/back_btn1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#00ACC1"
+                    android:text="@string/gotofourth"
+                    tools:ignore="NestedWeights" />
+                <Space
+                    android:layout_weight="0.125"
+                    android:minWidth="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:minHeight="48dp"
+                    android:layout_weight="1.25"
+                    android:minWidth="150dp"
+                    android:id="@+id/next_btn1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#00ACC1"
+                    android:text="@string/next" />
+            </LinearLayout>
+        </LinearLayout>
+
 
 
     </LinearLayout>

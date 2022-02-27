@@ -67,4 +67,5 @@
     <string name="eor">EOR</string>
     <string name="annot">Annot</string>
     <string name="cmplt_date">CMPLT Date</string>
+    <string name="back">Back</string>
 </resources>

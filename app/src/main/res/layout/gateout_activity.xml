@@ -1,93 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00ACC1"
-    android:backgroundTint="#00ACC1"
     tools:context=".GateOutActivity">
 
     <LinearLayout
+        android:weightSum="4"
+        android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#0F115A"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="1dp"
-        >
+        android:orientation="vertical">
 
         <Button
+            android:layout_weight="0.25"
             android:id="@+id/button9"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:backgroundTint="#00ACC1"
-            android:text="@string/menu"
-            android:translationY="-5dp" />
-
-        <TextView
-            android:id="@+id/textView3"
+            android:text="@string/menu" />
+        <LinearLayout
+            android:layout_weight="0.35"
+            android:gravity="center_horizontal"
+            android:weightSum="2"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="33dp"
-            android:text="@string/ContainerNo"
-            android:textColor="@color/white"
-            android:translationY="5dp" />
+            android:layout_height="0dp">
+            <TextView
+                android:layout_weight="0.5"
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/ContainerNo"
+                android:textColor="@color/white"
+                tools:ignore="NestedWeights" />
 
-        <EditText
-            android:id="@+id/container_id_query"
+            <EditText
+                android:layout_weight="1.5"
+                android:id="@+id/container_id_query"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:ems="10"
+                android:hint="@string/container_id"
+                android:textColorHint="@color/white"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="2"
+            android:weightSum="2"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/container_id"
-            android:textColorHint="@color/white"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:textColor="@color/white" />
+            android:layout_height="0dp">
+            <TextView
+                android:layout_weight="0.125"
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/completedate"
+                android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/textView4"
+            <CalendarView
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_weight="1.875"
+                android:id="@+id/calendarView2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal|top"
+                android:background="#FBFAFA"
+                android:weekNumberColor="@color/white"
+                android:weekSeparatorLineColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_weight="0.75"
+            android:weightSum="2"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/completedate"
-            android:textColor="@color/white"
-            android:translationY="20dp" />
+            android:layout_height="0dp">
+            <LinearLayout
+                android:gravity="center_horizontal"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                tools:ignore="NestedWeights">
+                <Button
+                    android:layout_weight="1.5"
+                    android:minHeight="80dp"
+                    android:minWidth="180dp"
+                    android:id="@+id/submit_btn2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#00ACC1"
+                    android:text="@string/gotofive"
+                    tools:ignore="NestedWeights" />
+            </LinearLayout>
 
-        <CalendarView
-            android:id="@+id/calendarView2"
-            android:layout_width="289dp"
-            android:layout_height="370dp"
-            android:layout_gravity="center_horizontal|top"
-            android:background="#FBFAFA"
-            android:translationY="30dp"
-            android:weekNumberColor="@color/white"
-            android:weekSeparatorLineColor="@color/white" />
+            <LinearLayout
+                android:layout_weight="0.75"
+                android:weightSum="3"
+                android:minHeight="50dp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal">
+                <Button
+                    android:minHeight="48dp"
+                    android:layout_weight="1.25"
+                    android:minWidth="150dp"
+                    android:id="@+id/back_btn1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#00ACC1"
+                    android:text="@string/gotofourth"
+                    tools:ignore="NestedWeights" />
+                <Space
+                    android:layout_weight="0.125"
+                    android:minWidth="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:minHeight="48dp"
+                    android:layout_weight="1.25"
+                    android:minWidth="150dp"
+                    android:id="@+id/next_btn1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#00ACC1"
+                    android:text="@string/next" />
+            </LinearLayout>
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/back_btn1"
-            android:layout_width="113dp"
-            android:layout_height="48dp"
-            android:backgroundTint="#00ACC1"
-            android:text="@string/gotofourth"
-            android:translationX="20dp"
-            android:translationY="120dp" />
-
-        <Button
-            android:id="@+id/submit_btn2"
-            android:layout_width="164dp"
-            android:layout_height="63dp"
-            android:backgroundTint="#00ACC1"
-            android:text="@string/gotofive"
-            android:translationX="130dp"
-            android:translationY="0dp" />
-
-        <Button
-            android:id="@+id/next_btn1"
-            android:layout_width="113dp"
-            android:layout_height="48dp"
-            android:backgroundTint="#00ACC1"
-            android:text="@string/next"
-            android:translationX="290dp"
-            android:translationY="10dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0F115A"
     android:paddingLeft="0dp"
@@ -11,31 +11,46 @@
 
 
     <LinearLayout
+        android:weightSum="3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp">
 
         <ImageView
+            android:layout_weight="1"
             android:id="@+id/image1"
-            android:layout_width="375dp"
-            android:layout_height="200dp"
-            android:translationY="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             app:srcCompat="@mipmap/ic_launcher_profile" />
 
         <LinearLayout
-            android:layout_width="400dp"
-            android:layout_height="640dp"
-            android:gravity="center"
+            android:weightSum="3.5"
+            android:layout_weight="0.75"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:translationY="10dp">
+            android:padding="16dp">
 
+            <TextView
+                android:layout_weight="0.5"
+                android:gravity="center_horizontal"
+                android:id="@+id/loginUsernameandPasswordid"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="@string/register_to_get_an_account"
+                android:textColor="#FAF3F3"
+                android:textColorHighlight="#F4F0F0"
+                android:textColorHint="#F6EEEE"
+                android:textColorLink="#F6EBEB"
+                android:textSize="16sp" />
 
             <EditText
+                android:layout_weight="1"
                 android:id="@+id/username_id"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:inputType="text"
                 android:minHeight="48dp"
                 android:hint="@string/Username"
@@ -44,13 +59,13 @@
                 android:textColorHint="#F1EFEF"
                 android:textColorLink="@color/white"
                 android:textCursorDrawable="@color/white"
-                android:textSize="14sp"
-                android:translationY="-210dp" />
+                android:textSize="14sp" />
 
             <EditText
+                android:layout_weight="1"
                 android:id="@+id/password_id"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:inputType="textPassword"
                 android:hint="@string/password_id_id"
                 android:minHeight="48dp"
@@ -59,13 +74,13 @@
                 android:textColorHint="#F1EFEF"
                 android:textColorLink="@color/white"
                 android:textCursorDrawable="@color/white"
-                android:textSize="14sp"
-                android:translationY="-210dp" />
+                android:textSize="14sp"/>
 
             <EditText
+                android:layout_weight="1"
                 android:id="@+id/confirm_password_id"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:inputType="textPassword"
                 android:hint="@string/confirm_password"
                 android:minHeight="48dp"
@@ -75,27 +90,45 @@
                 android:textColorLink="@color/white"
                 android:textCursorDrawable="@color/white"
                 android:textSize="14sp"
-                android:translationY="-210dp" />
-
-            <Button
-                android:id="@+id/register_btn"
-                android:layout_width="400dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/purple_700"
-                android:gravity="center"
-                android:text="@string/register"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:translationY="-180dp"
-                app:iconTint="@color/white"
-                tools:ignore="TextContrastCheck" />
-
-
-
+                 />
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_weight="0.5"
+            android:weightSum="2"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/register_btn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/purple_700"
+                android:text="@string/register"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:iconTint="@color/white"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/button_register"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/purple_700"
+                android:gravity="center"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:iconTint="@color/white"
+                tools:ignore="TextContrastCheck" />
+        </LinearLayout>
+
+
+
     </LinearLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -72,6 +72,7 @@ class Notification : AppCompatActivity() {
 
     @SuppressLint("SimpleDateFormat")
     private fun calculateLateDate(endDate: String, current: String): Int? {
+        if (current == "") return null
         val formatter = SimpleDateFormat(Config.FORMAT_DATE)
         val dateStart = formatter.parse(endDate)
         val dateFinish = formatter.parse(current)
