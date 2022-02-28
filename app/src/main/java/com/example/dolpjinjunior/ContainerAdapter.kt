@@ -33,7 +33,14 @@ class ContainerAdapter(val items : MutableList<Container>, val context : Context
         holder.containerFinishDate.text = items[position].getContainerDateFinish()
         when {
             items[position].getContainerLateDay().toString() == "null" -> {
-                holder.containerAnnot.text = "-"
+                if (items[position].getContainerFixedStatus()) {
+                    holder.containerAnnot.text = "Finish"
+                    holder.containerAnnot.setTextColor(Color.GREEN)
+                }
+                else {
+                    holder.containerAnnot.text = "-"
+                }
+                holder.containerAnnot.typeface = Typeface.DEFAULT_BOLD
             }
             items[position].getContainerLateDay().toString() == "0" -> {
                 holder.containerAnnot.text = "Finish"

@@ -135,7 +135,13 @@ class GateInActivity : AppCompatActivity() {
                     } catch (err : ApolloException) {
                         throw err
                     }
-                    Utils.makeToast(this@GateInActivity, "Saved Data!!", Toast.LENGTH_SHORT)
+
+                    if (result.data?.addContainer == null) {
+                        Utils.makeToast(this@GateInActivity, result.errors?.get(0).toString(), Toast.LENGTH_SHORT)
+                    }
+                    else {
+                        Utils.makeToast(this@GateInActivity, "Saved Data!!", Toast.LENGTH_SHORT)
+                    }
                     Log.d("LOG-DEBUGGER", "DATA : ${result.data}")
                 }
             }
