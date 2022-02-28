@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.exception.ApolloException
 import com.example.dolpjinjunior.utils.Config
 import com.example.dolpjinjunior.utils.Container
+import com.example.dolpjinjunior.utils.Utils
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -22,6 +24,7 @@ class Notification : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.notification_activity)
 
+
         lifecycleScope.launchWhenResumed {
             initialization()
         }
@@ -30,6 +33,7 @@ class Notification : AppCompatActivity() {
     @SuppressLint("SimpleDateFormat")
     private suspend fun initialization() {
 
+        val buttonMenu : Button = findViewById(R.id.buttonMenu)
 
         val result = try {
             ApolloClient.Builder().serverUrl(Config.GRAPHQL_URI).build()
@@ -38,35 +42,41 @@ class Notification : AppCompatActivity() {
         } catch (err : ApolloException) {
             throw err
         }
-        val allData = result.data?.all_container?.all_id
-        val containerList : MutableList<Container> = mutableListOf()
-
-        val buttonMenu : Button = findViewById(R.id.buttonMenu)
-
-        if (allData != null) {
-            for (data in allData){
-                containerList.add(Container(
-                    data.container_id,
-                    data.container_size,
-                    data.container_type,
-                    data.container_damage_level,
-                    data.container_date_start,
-                    data.container_date_end,
-                    data.container_date_finish,
-                    data.container_fixed_status,
-                    calculateLateDate(data.container_date_end, data.container_date_finish)
-                ))
-            }
+        if (result.errors.toString() == "null") {
+            Utils.makeToast(this@Notification, "Do not have any Data yet", Toast.LENGTH_LONG)
         }
 
-        Log.d("LOG-DEBUGGER", "DATA : ${containerList[0].getContainerId()}")
+        else {
+            val allData = result.data?.all_container?.all_id
+            val containerList : MutableList<Container> = mutableListOf()
 
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView!!.layoutManager = LinearLayoutManager(this)
+            if (allData != null) {
+                for (data in allData){
+                    containerList.add(Container(
+                        data.container_id,
+                        data.container_size,
+                        data.container_type,
+                        data.container_damage_level,
+                        data.container_date_start,
+                        data.container_date_end,
+                        data.container_date_finish,
+                        data.container_fixed_status,
+                        calculateLateDate(data.container_date_end, data.container_date_finish)
+                    ))
+                }
+            }
 
-        val myAdapter = ContainerAdapter(containerList, this)
-        recyclerView.adapter = myAdapter
+            Log.d("LOG-DEBUGGER", "DATA : ${containerList[0].getContainerId()}")
+
+
+            val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+            recyclerView!!.layoutManager = LinearLayoutManager(this)
+
+            val myAdapter = ContainerAdapter(containerList, this)
+            recyclerView.adapter = myAdapter
+        }
+
 
         buttonMenu.setOnClickListener {
             val context = buttonMenu.context
