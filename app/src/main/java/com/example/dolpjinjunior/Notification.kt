@@ -28,12 +28,21 @@ class Notification : AppCompatActivity() {
         lifecycleScope.launchWhenResumed {
             initialization()
         }
+
+        val buttonMenu : Button = findViewById(R.id.buttonMenu)
+
+        buttonMenu.setOnClickListener {
+            val context = buttonMenu.context
+            val intent = Intent(context, MainMenu::class.java)
+            context.startActivity(intent)
+        }
+
     }
 
     @SuppressLint("SimpleDateFormat")
     private suspend fun initialization() {
 
-        val buttonMenu : Button = findViewById(R.id.buttonMenu)
+
 
         val result = try {
             ApolloClient.Builder().serverUrl(Config.GRAPHQL_URI).build()
@@ -42,14 +51,12 @@ class Notification : AppCompatActivity() {
         } catch (err : ApolloException) {
             throw err
         }
-        if (result.errors.toString() == "null") {
-            Utils.makeToast(this@Notification, "Do not have any Data yet", Toast.LENGTH_LONG)
-        }
 
-        else {
+        Log.d("LOG-DEBUGGER","DATA : ${result.data?.all_container}")
+
+        if(result.data?.all_container?.all_id?.isNotEmpty() == true) {
             val allData = result.data?.all_container?.all_id
             val containerList : MutableList<Container> = mutableListOf()
-
 
             if (allData != null) {
                 for (data in allData){
@@ -77,12 +84,10 @@ class Notification : AppCompatActivity() {
             recyclerView.adapter = myAdapter
         }
 
-
-        buttonMenu.setOnClickListener {
-            val context = buttonMenu.context
-            val intent = Intent(context, MainMenu::class.java)
-            context.startActivity(intent)
+        else {
+            Utils.makeToast(this@Notification, "Do not have any Data yet", Toast.LENGTH_LONG)
         }
+
 
     }
 
