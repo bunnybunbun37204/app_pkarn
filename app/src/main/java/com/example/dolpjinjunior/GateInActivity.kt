@@ -137,7 +137,7 @@ class GateInActivity : AppCompatActivity() {
                     }
 
                     if (result.data?.addContainer == null) {
-                        Utils.makeToast(this@GateInActivity, result.errors?.get(0).toString(), Toast.LENGTH_SHORT)
+                        Utils.makeToast(this@GateInActivity, result.errors?.get(0)?.message.toString(), Toast.LENGTH_SHORT)
                     }
                     else {
                         Utils.makeToast(this@GateInActivity, "Saved Data!!", Toast.LENGTH_SHORT)

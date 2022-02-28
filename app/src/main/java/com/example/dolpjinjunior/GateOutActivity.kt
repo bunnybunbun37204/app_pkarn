@@ -57,7 +57,7 @@ class GateOutActivity : AppCompatActivity() {
                         throw err
                     }
                     if (result.data?.updateContainerStatus == null) {
-                        Utils.makeToast(this@GateOutActivity, result.errors.toString(), Toast.LENGTH_SHORT)
+                        Utils.makeToast(this@GateOutActivity, result.errors?.get(0)?.message.toString(), Toast.LENGTH_SHORT)
                     }
                     else {
                         Utils.makeToast(this@GateOutActivity, "Submit Data !!!", Toast.LENGTH_SHORT)
