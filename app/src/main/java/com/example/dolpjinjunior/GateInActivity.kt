@@ -4,6 +4,7 @@ package com.example.dolpjinjunior
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -108,24 +109,25 @@ class GateInActivity : AppCompatActivity() {
             /* Change damage level according to Check box */
             when {
                 empty_check.isChecked -> {
-                    damage_level = "Empty"
+                    damage_level = "100 - 1500 ฿"
                     countCheckBoxIsCheck += 1
                 }
                 wait1_check.isChecked -> {
-                    damage_level = "Wait1"
+                    damage_level = "1500 - 3000 ฿"
                     countCheckBoxIsCheck += 1
                 }
                 wait2_check.isChecked -> {
-                    damage_level = "Wait2"
+                    Log.d("LOG_DEBUGGER", "3000+ checked")
+                    damage_level = "3000+ ฿"
                     countCheckBoxIsCheck += 1
                 }
             }
 
             /* Calculate end-date according to damage level*/
             when (damage_level) {
-                "Empty" -> endDate = calculateDateEnd(formatDate, 3)
-                "Wait1" -> endDate = calculateDateEnd(formatDate, 5)
-                "Wait2" -> endDate = calculateDateEnd(formatDate, 30)
+                "100 - 1500 ฿" -> endDate = calculateDateEnd(formatDate, 7)
+                "1500 - 3000 ฿" -> endDate = calculateDateEnd(formatDate, 10)
+                "3000+ ฿" -> endDate = calculateDateEnd(formatDate, 30)
             }
 
             /* Get Container Id on Edittext */
@@ -210,6 +212,7 @@ class GateInActivity : AppCompatActivity() {
         val dateStart = formatter.parse(startDate)
         val dateTime = DateTime(dateStart)
         val endDate = dateTime.plusDays(dayAdd)
+        Log.d("LOG-DEBUGGER", "Date end : ${formatter.format(endDate.toDate())}")
         return formatter.format(endDate.toDate())
     }
 }
