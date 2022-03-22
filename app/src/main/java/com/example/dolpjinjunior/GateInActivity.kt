@@ -30,12 +30,12 @@ class GateInActivity : AppCompatActivity() {
 
         /* Defined necessary variables */
         var eqtype: String = "HC"
-        var eqsize: Float = 20f
+        var eqsize : Int = 20
         var damage_level: String = ""
         var endDate: String = ""
         val finishDate: String = ""
         val eqtypeOption = arrayOf("HC", "GP")
-        val eqsizeOption = arrayOf(20f, 40f)
+        val eqsizeOption = arrayOf(20, 40)
         var countCheckBoxIsCheck: Int = 0
 
         /* Get Data from calendar on format : dd/MM/yyyy, for example 12/06/2021 */
@@ -80,7 +80,7 @@ class GateInActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                eqsize = 20f
+                eqsize = 20
             }
         }
 
@@ -113,21 +113,21 @@ class GateInActivity : AppCompatActivity() {
                     countCheckBoxIsCheck += 1
                 }
                 wait1_check.isChecked -> {
-                    damage_level = "1500 - 3000 ฿"
+                    damage_level = "1501 - 3000 ฿"
                     countCheckBoxIsCheck += 1
                 }
                 wait2_check.isChecked -> {
                     Log.d("LOG_DEBUGGER", "3000+ checked")
-                    damage_level = "3000+ ฿"
+                    damage_level = "3001+ ฿"
                     countCheckBoxIsCheck += 1
                 }
             }
 
             /* Calculate end-date according to damage level*/
             when (damage_level) {
-                "100 - 1500 ฿" -> endDate = calculateDateEnd(formatDate, 7)
-                "1500 - 3000 ฿" -> endDate = calculateDateEnd(formatDate, 10)
-                "3000+ ฿" -> endDate = calculateDateEnd(formatDate, 30)
+                "100 - 1500 ฿" -> endDate = calculateDateEnd(formatDate, 5)
+                "1501 - 3000 ฿" -> endDate = calculateDateEnd(formatDate, 7)
+                "3001+ ฿" -> endDate = calculateDateEnd(formatDate, 10)
             }
 
             /* Get Container Id on Edittext */

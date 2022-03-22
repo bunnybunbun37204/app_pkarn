@@ -30,7 +30,7 @@ class ContainerAdapter(val items : MutableList<Container>, val context : Context
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.containerId.text = items[position].getContainerId()
-        holder.containerSize.text = items[position].getContainerSize().toString()
+        holder.containerSize.text = items[position].getContainerSize().toInt().toString()
         holder.containerType.text = items[position].getContainerType()
         holder.containerDamageLevel.text = items[position].getContainerDamageLv()
         holder.containerEorDate.text = items[position].getContainerDateStart()

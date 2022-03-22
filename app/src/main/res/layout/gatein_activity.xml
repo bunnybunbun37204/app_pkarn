@@ -126,7 +126,7 @@
                 android:layout_height="0dp"
                 android:buttonTint="#FFFFFF"
                 android:minHeight="40dp"
-                android:text="1500-3000 ฿"
+                android:text="1501-3000 ฿"
                 android:textColor="#FBFBFB" />
 
             <CheckBox
@@ -136,7 +136,7 @@
                 android:layout_height="0dp"
                 android:buttonTint="#FFFFFF"
                 android:minHeight="40dp"
-                android:text="3000+ ฿"
+                android:text="3001+ ฿"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 

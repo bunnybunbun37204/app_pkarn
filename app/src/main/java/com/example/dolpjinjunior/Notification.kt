@@ -52,7 +52,7 @@ class Notification : AppCompatActivity() {
 
         /* declare important variables */
         var count = 0 //for check the container that mus be fixed today
-        var idEndDate: MutableList<String> =
+        val idEndDate: MutableList<String> =
             mutableListOf() //for store list of container that must be fixed today
 
         /* Start download Process */
@@ -171,7 +171,7 @@ class Notification : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         with(builder)
         {
-            setTitle("It's Gate out time")
+            setTitle("It's Complete date day")
             setMessage("$container_id $message")
             setPositiveButton("OK", DialogInterface.OnClickListener(function = positiveButtonClick))
             show()
